@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { type RegisteredComponent } from '@builder.io/sdk-angular';
 
 @Component({
@@ -7,23 +7,17 @@ import { type RegisteredComponent } from '@builder.io/sdk-angular';
   template: `<h1>{{ title }}</h1>`,
 })
 export class CustomHelloWorldComponent {
-  title!: string;
+  @Input() title!: string;
 }
 
 export const customComponentInfo: RegisteredComponent = {
   component: CustomHelloWorldComponent,
-  canHaveChildren: true,
   name: 'HelloWorld',
-  inputs: [],
-  defaultChildren: [
+  inputs: [
     {
-      '@type': '@builder.io/sdk:Element',
-      component: {
-        name: 'Text',
-        options: {
-          text: 'Hello world',
-        },
-      },
+      name: 'title',
+      type: 'string',
+      defaultValue: 'Hello world',
     },
   ],
 };
