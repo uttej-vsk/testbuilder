@@ -25,7 +25,7 @@ export class AppComponent {
   customComponents = [customComponentInfo];
   content: BuilderContent | null = null;
   model = 'hello-world';
-  apiKey = '74eefffba4a442fe8737f96a03df502a';
+  apiKey = '';
 
   async ngOnInit() {
     this.content = await fetchOneEntry({
